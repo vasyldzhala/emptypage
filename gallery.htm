@@ -1,0 +1,121 @@
+<script src="https://use.fontawesome.com/4777af9e42.js"></script>
+<link rel="stylesheet" type="text/css" href="css/gallery.css">
+	<div class="container-fluid">
+		<h1>Empty Page Gallery</h1>
+	</div>
+	<div class="row container-fluid">
+
+		<aside class=" col-md-2 col-sm-2 col-sx-12 aside-albums">
+			<h4>    Albums </h4>
+			<ul id="select-albums">
+
+			</ul>
+			<button id="show-selected-albums" class="btn btn-default btn-sm">Show Selected</button>
+			<div>
+				<br><hr><br>
+				<button id="add-images-form-show-button" class="btn btn-default btn-sm">Add Images</button>
+			</div>
+			<div id="load-images-form" class="modal-window-container">
+
+				<form name="addImagesForm" class="modal-window" submit="addImages()">
+					<h3>Add new images to Gallery</h3>
+					<div class="form form-group">
+
+						<div class="row form-group">
+							<div class="col-md-3 label">
+								<label for="imageURL">Image URLs:</label>
+							</div>
+							<div class="col-md-9">
+								<textarea id="load-images-form-imageURL" class="load-images-form-imageURL" name="imageURL" required
+								placeholder="/image1.jpg, /image2.ipg, .."></textarea>								
+							</div>
+						</div>	
+
+						<div class="row form-group">
+							<div class="col-md-3 label">
+								<label for="title">Image(s) Title:</label>
+							</div>
+							<div class="col-md-9">
+								<input class="form-control" type="text" name="title" placeholder="***">
+							</div>
+						</div>
+						<div class="row form-group">
+							<div class="col-md-3 label">
+								<label for="description">Description:</label>
+							</div>
+							<div class="col-md-9">
+								<textarea id="load-images-form-description" name="description" placeholder="***"
+								></textarea>								
+							</div>
+						</div>
+						<div class="row form-group">
+							<div class="col-md-3 label">
+								<label for="albums">Album:</label>
+							</div>
+							<div class="col-md-9">
+								<select id="load-images-select-album" class="form-control" name="albums" required>
+								</select>
+							</div>
+						</div>
+
+						<div class="container-fluid add-images-thumbnails" id="add-images-thumbnails">
+								
+						</div>
+
+						<div class="row form-group">
+							<div class="col-md-3 label">
+								
+							</div>
+
+							<div class="col-md-9">
+								<button class="btn btn-default btn-sm">
+									Check
+								</button>
+								<button type="submit" id="add-images-button" class="btn btn-default btn-sm">
+									Add Images
+								</button>
+								<button type="reset" id="cansel-add-images-button" class="btn btn-default btn-sm" >
+									Cancel
+								</button>
+							</div>
+						</div>
+
+			
+					</div>
+				</form>					
+
+			</div>			
+		</aside>
+		<article class="col-md-10 col-sm-10 col-sx-12">
+			<div class="container-fluid" id="gallery-thumbnails">
+				
+			</div>
+			<div id="slider" class="slider">
+				<img src="" id="sliderImage" class="sliderImageShow" alt="Slider Image" />
+				
+			</div>
+			<div id="slider-full-screen" class="slider-full-screen">
+				<img src="" id="sliderImageFullScreen" class="sliderImageShow" alt="Slider Image" />
+			</div>
+			<div id="slider-controls">
+					<button id="slider-button-play" title="Play"> 
+						<i class="fa fa-play-circle-o fa-2x" aria-hidden="true"></i>
+					</button>
+					<button id="slider-button-pause" title="Pause">
+						<i class="fa fa-pause-circle-o fa-2x" aria-hidden="true"></i>
+					</button>
+					<button id="slider-button-full-screen" title="Full screen">
+						<i class="fa fa-expand fa-2x" aria-hidden="true"></i>
+					</button>
+					<button id="slider-button-windowed" title="Windowed">
+						<i class="fa fa-compress fa-2x" aria-hidden="true"></i>
+					</button>
+			</div>
+		</article>
+		
+	</div>
+<script src="js/gallery.js"></script>
+
+
+<!-- 					<button id="slider-button-play" class="btn btn-default btn-sm"> play </button>
+					<button id="slider-button-pause" class="btn btn-default btn-sm">pause</button>

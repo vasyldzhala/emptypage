@@ -1,0 +1,25 @@
+
+<div class="container-fluid">
+	<h2>Latest Posts</h2>
+	<ng-include src="'pagination_bar.htm'"></ng-include>
+</div>
+
+<div class="row cont-main">
+	<div class=" col-md-4 col-sm-6 col-sx-12 " 
+	ng-repeat = "postI in blog | filterItemsByCategory : categShowAll : categShow : category
+							   | filterPagination : pagination ">
+		<div class="thumbnail thumbnail-main">
+			<div class="thumbnail-img-cont">
+				<img ng-src="{{postI.imageURL}}" ng-show="postI.imageURL" onload="this.style.opacity='1'">
+		    </div>
+		    <div class="caption">
+		        <h3>{{postI.title}}</h3>
+		        <p>{{postI.subject}} </p>
+		        <p>
+		        <a href="{{'#blog#post' + postI.id}}" class="btn btn-default btn-sm" role="button">Read More</a> 
+		        </p>
+		    </div>
+		</div>
+	</div>
+	
+</div>

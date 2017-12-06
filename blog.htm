@@ -1,0 +1,42 @@
+<div class="container-fluid">
+
+	<div>
+		<h1>Empty Page Blog</h1>
+	</div>
+	<div>
+		<ng-include 
+			src="'blog_read.htm'" ng-show="blogCurrentView == 'read'">
+		</ng-include>
+		<ng-include 
+			src="'blog_write.htm'" ng-show="blogCurrentView == 'write'">
+		</ng-include>
+	</div>			
+
+	<div class="contaiter-fluid">
+		<hr>
+		<ng-include src="'pagination_bar.htm'"></ng-include>
+		<hr>
+		<div class="post" 
+		ng-repeat="postI in blog | filterItemsByCategory : categShowAll : categShow : category
+								 | filterPagination : pagination ">
+			<a name="{{'post' + postI.id}}"></a> 
+			<div class="page-header">
+  				 				
+  				<h1 ng-bind-html="postI.title"><small></small></h1>
+  				<h3><small ng-bind-html="postI.subject"></small></h3>
+				<h5>
+					by <span ng-bind-html="postI.writer"></span>
+					<span> {{postI.datePub *1000 | date : "dd.MMMM.yyyy" :"UTC"}} </span>
+					 
+				</h5>			
+			</div>
+			<img class="post-img" ng-src="{{postI.imageURL}}" ng-show="postI.imageURL" onload="this.style.opacity='1'">
+			<div 
+				class="blog-content" ng-bind-html="postI.content">
+			</div>
+			<br><br>
+			<hr>
+		</div>
+	</div>
+</div>
+

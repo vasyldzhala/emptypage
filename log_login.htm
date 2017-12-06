@@ -1,0 +1,46 @@
+<div >
+	<form name="logForm" novalidate ng-submit="newUserLogin(newUser)">
+			<div class="well">
+
+				<div class="row form-group">
+					<div class="col-md-4 label">
+						<label>Login:</label>
+					</div>
+					<div class="col-md-6">
+						<input name="userName" type="text" class="form-control" required 
+						ng-model="newUser.name">
+					</div>
+				</div>
+				<div class="row form-group">
+					<div class="col-md-4 label">
+						<label>Password:</label>
+					</div>
+					<div class="col-md-6">
+						<input name="userName" type="password" class="form-control" required 
+						ng-model="newUser.password">
+					</div>
+				</div>
+				
+				<div class="row form-group">
+					<div class="error" ng-show="logError">
+						Invalid login or password!
+					</div>
+				</div>
+
+			
+				<div class="row form-group">
+					<div class="col-md-4"></div>
+					<div class="col-md-6">
+						<button type="submit" class="btn btn-default btn-sm" ng-disabled="logForm.$invalid">
+							Login
+			 			</button>
+						<button type="reset" class="btn btn-default btn-sm" ng-click="newUserReg()">
+							New User
+			 			</button>
+			 		</div>
+ 				</div>
+ 			</div>
+
+	</form>
+	
+</div>

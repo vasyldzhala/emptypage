@@ -1,0 +1,8 @@
+<form name="blogReadForm" novalidate ng-submit="createPost()">
+	<div class="form form-group">
+		<button type="submit" class="btn btn-default btn-sm" ng-disabled="(!(user.id))">
+			Create Post
+		</button>
+		<p ng-hide = "user.id"><small>You must be currently logged to create Post</small>  </p>
+	</div>
+</form>

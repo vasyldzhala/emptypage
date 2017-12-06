@@ -1,0 +1,78 @@
+<div class="container blog-write-form">
+<h3>Create Post here</h3>
+	<form name="blogWriteForm" novalidate ng-submit="publishPost()">
+		<div class="form form-group">
+					
+			<div class="row form-group">
+				<div class="col-md-3 label">
+					<label>Title:</label>
+				</div>
+				<div class="col-md-9">
+					<input name="title" type="text" class="form-control" required 
+					ng-model="post.title">
+				</div>
+			</div>
+			<div class="row form-group">
+				<div class="col-md-3 label">
+					<label>Subject:</label>
+				</div>
+				<div class="col-md-9">
+					<input name="subject" type="text" class="form-control" required 
+					ng-model="post.subject">
+				</div>
+			</div>
+            <div class="row form-group ">
+                <div class="col-md-3 label">
+                	<label>Category:</label>
+                </div>
+                <div class="col-md-9">
+                    <select class="form-control" required 
+                    	ng-options="categ.id as categ.name for categ in category" ng-model="post.categoryID">
+                    </select>
+                 </div>
+            </div>
+			<div class="row form-group">
+				<div class="col-md-3 label">
+					<label>Image URL:</label>
+				</div>
+				<div class="col-md-9">
+					<input name="imgURL" type="text" class="form-control" required 
+					ng-model="post.imageURL">
+				</div>
+			</div>
+			<div class="row form-group">
+				<div>
+					<textarea class="blog-textinput" name="content" required
+					ng-model="post.content" placeholder="Write something...">
+						
+					</textarea>
+					<p><small>Please, use HTML tags <code> &lt;p&gt; &lt;a&gt; &lt;br&gt; &lt;img&gt; &lt;strong&gt; &lt;del&gt;</code> to format your text</small></p>
+				</div>
+			</div>		
+	
+			<button type="submit" class="btn btn-default btn-sm" ng-disabled="blogWriteForm.$invalid">
+				Publish
+			</button>
+			<button type="reset" class="btn btn-default btn-sm" ng-click="cancelPublish()">
+				Cancel
+			</button>
+			<input type="checkbox" ng-model="showPostPreview" /> Preview 
+
+		</div>
+	</form>
+<div>		
+
+<div class="post" ng-show="showPostPreview">
+	<hr>
+	<div class="page-header">
+  		<h1 ng-bind-html="post.title"><small></small></h1>
+  		<h3><small ng-bind-html="post.subject"></small></h3>
+		<h5>
+			by <span ng-bind-html="user.name"></span>
+		</h5>			
+	</div>
+	<img class="post-img" ng-src="{{post.imageURL}}" ng-show="post.imageURL" onload="this.style.opacity='1'">
+	<div 
+		class="blog-content" ng-bind-html="post.content">
+	</div>
+</div>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Empty Page</title>
+
+	<link rel="icon" href="img/emptyfavicon1.ico" type="image/x-icon" />  
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<script 
+	  src="https://code.jquery.com/jquery-3.2.1.min.js"
+	  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+	  crossorigin="anonymous">
+</script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Alfa+Slab+One|Anton|Baloo|Bangers|Bowlby+One|Bowlby+One+SC|Bungee|Bungee+Inline|Gravitas+One|Josefin+Sans|Limelight|Open+Sans|Pacifico|Poller+One|Slabo+27px|Titan+One|Ubuntu|Ultra|Vollkorn" rel="stylesheet">
+<script src="https://use.fontawesome.com/4777af9e42.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-cookies.min.js"></script>
+<script src="https://code.angularjs.org/1.4.8/angular-sanitize.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+
+<link rel="stylesheet" type="text/css" href="css/styles.css">
+<script src="js/app.js"></script>
+
+</head>
+
+<body ng-controller="blankCtrl" ng-app="blankApp" class="container-fluid" scroll-reaction>
+	<header class="main-header container-fluid">
+        <div id="top-anchor" class="row">
+
+			<div class="col-sm-6">
+				<div id="ef4">
+					<div><a href="#/">EmptyPage</a> </div>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<ng-include src="'log_welcome.htm'" ng-show="logCurrentView == 'welcome'"></ng-include>
+				<ng-include src="'log_login.htm'" ng-show="logCurrentView == 'login'"></ng-include>
+				<ng-include src="'log_reg.htm'" ng-show="logCurrentView == 'reg'"></ng-include>
+			</div>			
+		</div>
+
+		<button class="btn btn-primary goto" ng-click="scrollTo('top-anchor')">
+           	<i class="fa fa-arrow-up" aria-hidden="true"></i><!-- &#8657; -->
+        </button>	
+	</header>
+
+	<nav class="main-nav navbar navbar-default"> 
+	    <div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+			     </button>
+			     <a class="navbar-brand" href="#/">Empty</a>
+			</div>
+
+
+			<div class="collapse navbar-collapse" id="header-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li role="presentation"><a href="#gallery">Gallery</a></li>
+					<li role="presentation"><a href="#blog">Blog</a></li>
+					<li role="presentation"><a href="#reviews">Reviews</a></li>
+				</ul>
+
+				<ul class="nav navbar-nav navbar-right">
+        			<li class="dropdown">
+	          			<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
+	          			<ul class="dropdown-menu">
+	            			<li>
+	            				<input type="checkbox" ng-checked="true" ng-model="categShowAll">
+	            				{{' All (' + blog.length + ' items)'}}
+	            			</li>
+	            			<li role="separator" class="divider"></li>
+	            			<li ng-repeat="categ in category">
+	            				<input type="checkbox" ng-disabled="categShowAll" ng-model="categShow[$index]">
+	            				{{' ' + categ.name + ' (' + categ.numberOfItems + ')'}}
+	            			</li>
+
+	          			</ul>
+
+      			</ul>
+
+			</div>
+
+		</div>	
+	</nav>
+
+	<div ng-view></div>
+
+	<footer class="container-fluid well">
+		<div>Designed by Vasyl Dzhala, 2017</div>		
+	</footer>
+
+</body>
+</html>

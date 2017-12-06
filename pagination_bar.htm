@@ -1,0 +1,30 @@
+<nav class="pagination-bar" aria-label="pagination">
+  <ul class="pager">
+    <li class="previous">
+    	<a 
+    		ng-hide="pagination.startItem <= 0" 
+    		ng-click="showFirst()">
+    		<span aria-hidden="true"> &lt;&lt; </span>
+    	</a>
+        <a 
+            ng-hide="pagination.startItem <= 0" 
+            ng-click="showPrevious()">
+            <span aria-hidden="true">&lt; </span> Previous
+        </a>        
+    </li>
+ <span class="centred"> {{(pagination.startItem+1) + ' - ' + (pagination.endItem+1) + ' (' + pagination.filteredItemNumb + ')'}} </span>
+    <li class="next">
+        <a 
+            ng-hide="(pagination.endItem +1) >= pagination.filteredItemNumb" 
+            ng-click="showLast()">
+            <span aria-hidden="true"> &gt;&gt; </span>
+        </a>            	
+        <a 
+    		ng-hide="(pagination.endItem +1) >= pagination.filteredItemNumb" 
+    		ng-click="showNext()">
+    		Next <span aria-hidden="true"> &gt;</span>
+    	</a>
+
+    </li>
+  </ul>
+</nav>
